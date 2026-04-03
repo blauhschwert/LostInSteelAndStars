@@ -38,7 +38,8 @@ Dungeon crawler games often focus on exploration, procedural spaces, and surviva
 
 ## 🔗 Play the Game
 
-👉 [Play on itch.io](#)  
+👉 [Play on itch.io](https://itch.io/)
+
 https://blauhschwert.itch.io/lost-in-steel-and-stars
 
 ## 🛠️ Tech Stack
