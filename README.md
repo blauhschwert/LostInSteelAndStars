@@ -47,8 +47,18 @@ https://blauhschwert.itch.io/lost-in-steel-and-stars
 - Engine: Godot
 - Language: GDscript
 - Assets: (list if needed)
+  Textures:
+  - https://ambientcg.com/a/DiamondPlate009
+  - https://ambientcg.com/a/Metal046A
+  - https://ambientcg.com/a/Metal062C
+  - https://ambientcg.com/a/DiamondPlate006C
+  - https://ambientcg.com/a/DiamondPlate006B
+  - https://ambientcg.com/a/DiamondPlate009
+ 
+  
 
-## 📦 Installation
+
+# 📦 Installation
 
 ```bash
 git clone https://github.com/blauhschwert/LostInSteelAndStars
