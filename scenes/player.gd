@@ -13,11 +13,15 @@ var is_moving: bool
 @onready var left_ray: RayCast3D = $LeftRay
 @onready var right_ray: RayCast3D = $RightRay
 
+@onready var battle_screen: BattleScreen = $BattleScreen
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target_position = global_position
 
-func _input(event: InputEvent) -> void:
+
+func _input(_event: InputEvent) -> void:
 	if not is_moving:
 		if Input.is_action_just_pressed("move_forward"):
 			move_forward()
@@ -33,10 +37,10 @@ func _input(event: InputEvent) -> void:
 			turn_right()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_moving:
 		if not global_position == target_position:
 			global_position = lerp(global_position, target_position, move_speed)
@@ -78,3 +82,7 @@ func turn_right():
 	var tween = create_tween()
 	tween.tween_property(self, "rotation:y", target_rotation,turn_speed)
 	tween.finished.connect(func(): is_moving = false)
+
+func create_battle() -> void:
+	set_process_input(false)
+	battle_screen.show()

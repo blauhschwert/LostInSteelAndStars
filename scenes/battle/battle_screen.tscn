@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bvdav70na7qn7"]
+
+[ext_resource type="PackedScene" uid="uid://dnlukkuffuonb" path="res://scenes/battle/battle_container.tscn" id="1_e5ty1"]
+[ext_resource type="Script" uid="uid://c7x4xqi6dpnhe" path="res://scenes/battle/battle_screen.gd" id="1_g0k2o"]
+[ext_resource type="Script" uid="uid://bq6mfencnbkt8" path="res://scenes/battle/battle_actors.gd" id="2_i7q83"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e5ty1"]
+viewport_path = NodePath("SubViewport")
+
+[node name="BattleScreen" type="Node3D" unique_id=2130135507]
+script = ExtResource("1_g0k2o")
+
+[node name="BattleActors" type="Node" parent="." unique_id=679075293]
+script = ExtResource("2_i7q83")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=412027707]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="BattleContainer" parent="SubViewport" unique_id=1274651157 instance=ExtResource("1_e5ty1")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=956743689]
+texture = SubResource("ViewportTexture_e5ty1")

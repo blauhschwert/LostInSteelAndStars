@@ -29,7 +29,7 @@ roughness = 0.65
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fpk2"]
 transparency = 1
 blend_mode = 1
-albedo_color = Color(0.18239999, 0.36328003, 0.57, 0.69411767)
+albedo_color = Color(0.1768, 0.41162667, 0.68, 0.7019608)
 refraction_enabled = true
 refraction_scale = 0.03
 
