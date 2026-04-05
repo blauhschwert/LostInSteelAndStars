@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
-var move_distance : float = 3.0
+var move_distance : float = 1.5
 var move_speed : float = 0.5
 var turn_speed : float = 0.2
 var target_position : Vector3

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwu7dg0vvqorb" path="res://scenes/battle_creator.gd" id="1_klb2e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7tcoo"]
-size = Vector3(3, 0.1, 2.5)
+size = Vector3(4, 0.1, 2)
 
 [node name="battle_creator" type="Area3D" unique_id=1430536204]
 collision_layer = 4
@@ -11,7 +11,7 @@ collision_mask = 2
 script = ExtResource("1_klb2e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=132327693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6022949)
 shape = SubResource("BoxShape3D_7tcoo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
