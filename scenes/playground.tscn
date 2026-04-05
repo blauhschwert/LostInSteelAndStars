@@ -1,20 +1,35 @@
 [gd_scene format=3 uid="uid://b2ne6h038jabe"]
 
 [ext_resource type="MeshLibrary" uid="uid://b0gonrcu8cfsg" path="res://BlockMeshLibary.tres" id="1_hddm4"]
+[ext_resource type="Texture2D" uid="uid://7lhk6vy4agxo" path="res://assets/panorama_image-2.png" id="1_kddj0"]
 [ext_resource type="PackedScene" uid="uid://dvlkm8dukdsw0" path="res://scenes/player.tscn" id="2_qchbg"]
-[ext_resource type="Texture2D" uid="uid://wrgm6ynryk4c" path="res://assets/panorama_image.png" id="3_kddj0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kddj0"]
-panorama = ExtResource("3_kddj0")
-energy_multiplier = 2.0
+panorama = ExtResource("1_kddj0")
+filter = false
+energy_multiplier = 1.7
 
 [sub_resource type="Sky" id="Sky_q8s1k"]
 sky_material = SubResource("PanoramaSkyMaterial_kddj0")
+process_mode = 1
+radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_mm0a5"]
 background_mode = 2
-background_energy_multiplier = 4.0
 sky = SubResource("Sky_q8s1k")
+sky_custom_fov = 86.0
+ambient_light_source = 3
+ambient_light_energy = 0.0
+reflected_light_source = 2
+ssr_fade_in = 0.84852785
+ssr_fade_out = 0.43527523
+glow_normalized = true
+glow_intensity = 1.1
+glow_strength = 0.5
+glow_bloom = 0.06
+glow_blend_mode = 0
+fog_mode = 1
+fog_density = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hddm4"]
 
