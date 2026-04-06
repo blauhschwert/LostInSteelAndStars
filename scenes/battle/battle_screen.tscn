@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dnlukkuffuonb" path="res://scenes/battle/battle_container.tscn" id="1_e5ty1"]
 [ext_resource type="Script" uid="uid://c7x4xqi6dpnhe" path="res://scenes/battle/battle_screen.gd" id="1_g0k2o"]
-[ext_resource type="Script" uid="uid://bq6mfencnbkt8" path="res://scenes/battle/battle_actors.gd" id="2_i7q83"]
+[ext_resource type="Script" uid="uid://cxvfr3rjc6m3c" path="res://scenes/battle/actors/battle_actor.gd" id="2_i7q83"]
+[ext_resource type="PackedScene" uid="uid://dhh2u0h1j1np7" path="res://scenes/battle/actors/player/player.tscn" id="3_sovt7"]
+[ext_resource type="PackedScene" uid="uid://dmy0ou0m62l37" path="res://scenes/battle/actors/enemys/worms/WormLvL3.tscn" id="4_r2thi"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e5ty1"]
 viewport_path = NodePath("SubViewport")
@@ -10,8 +12,15 @@ viewport_path = NodePath("SubViewport")
 [node name="BattleScreen" type="Node3D" unique_id=2130135507]
 script = ExtResource("1_g0k2o")
 
-[node name="BattleActors" type="Node" parent="." unique_id=679075293]
+[node name="PlayerParty" type="Node" parent="." unique_id=679075293]
 script = ExtResource("2_i7q83")
+
+[node name="Player" parent="PlayerParty" unique_id=1093812756 instance=ExtResource("3_sovt7")]
+
+[node name="EnemyParty" type="Node" parent="." unique_id=396371944]
+script = ExtResource("2_i7q83")
+
+[node name="WormLvL3" parent="EnemyParty" unique_id=1218487923 instance=ExtResource("4_r2thi")]
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=412027707]
 transparent_bg = true
@@ -19,5 +28,5 @@ size = Vector2i(1280, 720)
 
 [node name="BattleContainer" parent="SubViewport" unique_id=1274651157 instance=ExtResource("1_e5ty1")]
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=956743689]
+[node name="BattleSprite" type="Sprite3D" parent="." unique_id=956743689]
 texture = SubResource("ViewportTexture_e5ty1")

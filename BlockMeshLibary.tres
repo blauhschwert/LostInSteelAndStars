@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bhxihpgp66ad" path="res://assets/textures/image-4.png" id="1_w0wm5"]
 [ext_resource type="Material" uid="uid://rh3ppf6u5vn5" path="res://scenes/res/GreenMossMaterial.tres" id="2_lromg"]
 [ext_resource type="Texture2D" uid="uid://b03txus6c8ceg" path="res://assets/textures/image-2.png" id="3_2r26r"]
+[ext_resource type="Shader" uid="uid://do6elq6ldys6p" path="res://scenes/res/glass_shader.gdshader" id="4_2r26r"]
 [ext_resource type="Texture2D" uid="uid://dc3envcbk0eid" path="res://assets/textures/image-5.png" id="4_7vqvn"]
 [ext_resource type="Texture2D" uid="uid://b1llttum47g6j" path="res://assets/textures/image-3.png" id="5_y868c"]
 
@@ -71,15 +72,26 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_hitjc"]
 image = SubResource("Image_7vqvn")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fpk2"]
-transparency = 1
-blend_mode = 1
-albedo_color = Color(0.18239999, 0.36328003, 0.57, 0.69411767)
-refraction_enabled = true
-refraction_scale = 0.03
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vqvn"]
+render_priority = 0
+shader = ExtResource("4_2r26r")
+shader_parameter/transparency_colour = Color(0.4143206, 0.4143206, 0.4143206, 1)
+shader_parameter/AirIOR = 1.0
+shader_parameter/IOR = 1.5
+shader_parameter/uv1_scale = Vector2(1, 1)
+shader_parameter/uv1_offset = Vector2(0, 0)
+shader_parameter/normalstrength = 1.0
+shader_parameter/refraction_type = 1
+shader_parameter/simple_refraction_amount = 0.1
+shader_parameter/traced_refraction_far_clip = 50.0
+shader_parameter/traced_refraction_steps = 512
+shader_parameter/ssr_type = 2
+shader_parameter/traced_ssr_far_clip = 50.0
+shader_parameter/traced_ssr_steps = 512
+shader_parameter/ssr_screen_fade = 0.05
 
 [sub_resource type="BoxMesh" id="BoxMesh_vftx4"]
-material = SubResource("StandardMaterial3D_1fpk2")
+material = SubResource("ShaderMaterial_7vqvn")
 size = Vector3(3, 1, 3)
 
 [sub_resource type="Image" id="Image_y868c"]

@@ -55,6 +55,8 @@ https://blauhschwert.itch.io/lost-in-steel-and-stars
   - https://ambientcg.com/a/DiamondPlate006B
   - https://ambientcg.com/a/DiamondPlate009
  
+ Shaders:
+ - Glass Shader : https://godotshaders.com/shader/realistic-glass-with-traced-and-simple-reflection-and-refraction/
   
 
 

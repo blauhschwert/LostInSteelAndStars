@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://svblbfka5vgq"]
+
+[ext_resource type="Script" uid="uid://2i37k60oe0o3" path="res://scenes/battle/actors/enemys/enemy_actor.gd" id="1_y55x1"]
+[ext_resource type="Script" uid="uid://b5ovi6apj7i5e" path="res://assets/resource/stats/actor_base.gd" id="2_85hx5"]
+[ext_resource type="Texture2D" uid="uid://b36qdhdgqa8wo" path="res://assets/enemys/WormA.png" id="3_v6nvx"]
+[ext_resource type="Texture2D" uid="uid://l5m0kw3uvqly" path="res://assets/enemys/WormB.png" id="4_eq40t"]
+[ext_resource type="Texture2D" uid="uid://bupm0yet2rst7" path="res://assets/enemys/WormC.png" id="5_m1yhs"]
+
+[sub_resource type="Resource" id="Resource_i78s0"]
+script = ExtResource("2_85hx5")
+actor_type = 1
+actor_name = "Worm"
+level = 2
+metadata/_custom_type_script = "uid://b5ovi6apj7i5e"
+
+[node name="WormLvL2" type="Node" unique_id=1218487923]
+script = ExtResource("1_y55x1")
+enemy_base_data = SubResource("Resource_i78s0")
+enemy_texture = Array[Texture2D]([ExtResource("3_v6nvx"), ExtResource("4_eq40t"), ExtResource("5_m1yhs")])
+metadata/_custom_type_script = "uid://2i37k60oe0o3"

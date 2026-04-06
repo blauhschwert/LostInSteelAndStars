@@ -1,7 +1,11 @@
 class_name Player
 extends CharacterBody3D
 
-var move_distance : float = 1.5
+@export var actor_res : ActorBase
+
+var player_heatlh : int
+
+var move_distance : float = 3.0
 var move_speed : float = 0.5
 var turn_speed : float = 0.2
 var target_position : Vector3
@@ -15,10 +19,13 @@ var is_moving: bool
 
 @onready var battle_screen: BattleScreen = $BattleScreen
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target_position = global_position
+	
+	var player_var_test = PlayerStats.new(33,10,9,6,5)
+	
+	player_heatlh = player_var_test.health
 
 
 func _input(_event: InputEvent) -> void:
@@ -75,7 +82,6 @@ func turn_left():
 	tween.tween_property(self, "rotation:y", target_rotation,turn_speed)
 	tween.finished.connect(func(): is_moving = false)
 
-
 func turn_right():
 	is_moving = true
 	target_rotation = rotation.y - PI/2.0
@@ -83,6 +89,19 @@ func turn_right():
 	tween.tween_property(self, "rotation:y", target_rotation,turn_speed)
 	tween.finished.connect(func(): is_moving = false)
 
-func create_battle() -> void:
-	set_process_input(false)
+func create_battle(_p_message : String) -> void:
 	battle_screen.show()
+	battle_screen.scale = Vector3(0.01,0.01,0.01)
+	set_process_input(false)
+	var tween = create_tween()
+	tween.tween_property(battle_screen,"scale",Vector3(0.3,0.3,0.3),0.33)
+	await tween.finished
+	print(actor_res.get_actor_name())
+	print(player_heatlh)
+
+func _on_battle_screen_end_battle() -> void:
+	var tween = create_tween()
+	tween.tween_property(battle_screen,"scale",Vector3(0.01,0.01,0.01),0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	battle_screen.hide()
+	set_process_input(true)

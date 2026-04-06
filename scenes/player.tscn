@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvlkm8dukdsw0"]
 
 [ext_resource type="Script" uid="uid://d36veeabu656a" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="Resource" uid="uid://dlxowllhhjbby" path="res://assets/resource/stats/player_resources/player.tres" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://bvdav70na7qn7" path="res://scenes/battle/battle_screen.tscn" id="2_g2els"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8vuu"]
@@ -9,6 +10,7 @@ size = Vector3(2, 1.0561523, 2)
 [node name="Player" type="CharacterBody3D" unique_id=322125616]
 collision_layer = 2
 script = ExtResource("1_3vyb7")
+actor_res = ExtResource("2_dqkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=515777042]
 shape = SubResource("BoxShape3D_u8vuu")
@@ -42,3 +44,5 @@ collide_with_areas = true
 [node name="BattleScreen" parent="." unique_id=2130135507 instance=ExtResource("2_g2els")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.2, -1.6)
 visible = false
+
+[connection signal="end_battle" from="BattleScreen" to="." method="_on_battle_screen_end_battle"]
